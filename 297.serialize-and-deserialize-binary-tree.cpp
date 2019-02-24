@@ -87,11 +87,8 @@ private:
         TreeNode* root= new TreeNode(stoi(val));
         root->left=deserialize(in);
         root->right=deserialize(in);
-
         return root;
     }
-
-   
 }; 
 // Your Codec object will be instantiated and called as such:
 // Codec codec;
