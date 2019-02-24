@@ -50,48 +50,48 @@ public:
 
     // Encodes a tree to a single string.
     string serialize(TreeNode* root) {
-         ostringstream out;
-         serialize(root,out);
-         return out.str();
+        stringstream out;
+        serialize(root,out);
+        return out.str();       
     }
 
     // Decodes your encoded data to tree.
     TreeNode* deserialize(string data) 
-    {
-        istringstream in(data);
+    { 
+        stringstream in(data);
         return deserialize(in);
     }
 
 private:
-    //  root - left - right 
-    void serialize(TreeNode *root,ostringstream &out)
+    void serialize(TreeNode* root,stringstream &out)
     {
-        if(root)//存在就pre遍历，注意每次存入流中要加空格。
+        if(root)
         {
-            out<<root->val<<' ';//‘ ’为结束符
+            out<<root->val<<" ";
             serialize(root->left,out);
             serialize(root->right,out);
         }
-        else//不存在就"# "也要有空格。
+        else
         {
-            out<<"# ";//#代表空节点，后面还有一个结束符' '
-        }        
+            out<<"# ";
+        }
     }
 
-
-    TreeNode* deserialize(istringstream &in)
+    TreeNode* deserialize(stringstream &in)
     {
-        //读取节点
         string val;
-        in >> val; //一个单词作为独立元素。用string流把string分割了
-        if(val=="#") 
-            return nullptr;
-        //递归 重构树
-        TreeNode* root=new TreeNode(stoi(val));       
-        root->left=deserialize(in);       
+        in>>val;
+
+        if(val=="#")
+        return nullptr;
+        TreeNode* root= new TreeNode(stoi(val));
+        root->left=deserialize(in);
         root->right=deserialize(in);
+
         return root;
     }
+
+   
 }; 
 // Your Codec object will be instantiated and called as such:
 // Codec codec;
