@@ -43,23 +43,23 @@
 class Solution {
 public:
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        int rootindx=0;
-        return helper(preorder,inorder,rootindx,0,preorder.size()-1);//因为index是引用，所以要定义一个变量。不能直接传常量0进去，会报错
+        int midindx=0;
+        return helper(preorder,inorder,midindx,0,preorder.size()-1);//因为index是引用，所以要定义一个变量。不能直接传常量0进去，会报错
     }
     
 private:
-    TreeNode* helper(vector<int>& preorder,vector<int>& inorder,int& rootInex,int start,int end) {
+    TreeNode* helper(vector<int>& preorder,vector<int>& inorder,int& midIndex,int start,int end) {
         //递归终止"index不能等于size(越界)。start不能超过end,可以等于
-        if(rootInex>=preorder.size()||start>end)
+        if(midIndex>=preorder.size()||start>end)
         return nullptr;
         
-        TreeNode* root = new TreeNode(preorder[rootInex]);
-        auto pos = distance(inorder.begin(),find(inorder.begin()+start,inorder.begin()+end,preorder[rootInex]));
+        TreeNode* root = new TreeNode(preorder[midIndex]);
+        auto pos = distance(inorder.begin(),find(inorder.begin()+start,inorder.begin()+end,preorder[midIndex]));
         //find(.begin()+start,.begin()+end,pre[index]) 不能直接写.begin和.end,因为他们是会变的。
-        rootInex++;
+        midIndex++;
         
-        root->left=helper(preorder,inorder,rootInex,start,pos-1);
-        root->right=helper(preorder,inorder,rootInex,pos+1,end); 
+        root->left=helper(preorder,inorder,midIndex,start,pos-1);
+        root->right=helper(preorder,inorder,midIndex,pos+1,end); 
 
         return root;
     }
