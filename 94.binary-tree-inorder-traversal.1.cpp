@@ -37,7 +37,7 @@
  * };
  */
 //Morris Traversal
-//O1,非递归+不用栈,Threaded binary tree
+//O1,非递归+不用栈,Threaded binary tree 
 // Non-recursion and no stack
 class Solution {
 public:
