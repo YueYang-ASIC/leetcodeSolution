@@ -1,7 +1,7 @@
 /*
  * @lc app=leetcode.cn id=804 lang=cpp
  *
- * [804] 旋转数字
+ * [804] 国际摩尔斯密码
  *
  * https://leetcode-cn.com/problems/unique-morse-code-words/description/
  *
