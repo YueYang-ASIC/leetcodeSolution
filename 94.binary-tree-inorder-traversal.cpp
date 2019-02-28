@@ -36,7 +36,7 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-//中序遍历：左-根-右
+//中序遍历：左-根-右 
 //
 //若根节点为空，返回。左子树调用递归。输出根节点。右子树调用递归。
 class Solution {
