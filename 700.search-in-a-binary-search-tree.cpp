@@ -50,20 +50,14 @@
 class Solution {
 public:
     TreeNode* searchBST(TreeNode* root, int val) {
-        if(!root)
-        return nullptr;
-        return Helper(root,val);        
-    }
-
-    TreeNode* Helper(TreeNode* root, int val)
-    {
-        if(root==nullptr) return root;
-        if(root->val==val) return root;
-        else if (root->val>val)
-            root=Helper(root->left,val);
-        else if (root->val <val)
-            root= Helper(root->right,val);
+        if(!root||val==root->val) return root;   
+        if(root->val<val)
+            root=searchBST(root->right,val);
+        else if (root->val>val) 
+            root =searchBST(root->left,val); 
         return root;
     }
+
+  
 };
 
