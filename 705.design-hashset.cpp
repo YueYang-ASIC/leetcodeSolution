@@ -44,7 +44,7 @@
  * 不要使用内建的哈希集合库。
  * 
  * 
- */
+ */ 
 class MyHashSet {
 public:
     /** Initialize your data structure here. */
