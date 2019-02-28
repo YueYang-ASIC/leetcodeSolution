@@ -47,6 +47,7 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+//递归
 class Solution {
 public:
     TreeNode* searchBST(TreeNode* root, int val) {
