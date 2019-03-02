@@ -27,28 +27,36 @@
  * ]
  * 
  */
-//递归。分层布局。1.交换第一个数字。2.第一个数固定。后面的排列。3.交换归位。
+//递归。回溯。填空格法。访问数组标记。
 class Solution {
 public:
-    vector<vector<int>> permute(vector<int> &num) {
+    vector<vector<int>> permute(vector<int> &num) { 
         vector<vector<int>> ret;
-        Helper(num,ret,0);
-        return ret;	 
+        if(num.size()==0) return ret;
+        vector<int> out,visited(num.size(),0);
+        Helper(num,out,ret,0,visited);
+        return ret;
     }
-
-    void Helper(vector<int> num,vector<vector<int>> & ret,int start)
-    {
-        if(start==num.size())
+    void Helper(vector<int> num,vector<int> & out,
+        vector<vector<int>> &ret,int &index,vector<int> &visited)//int index不能用引用，他是const
         {
-            //一种全排列
-            ret.push_back(num);
+            if(index == num.size())
+            {
+                //一次排列完成
+                ret.push_back(out);
+                return;
+            }
+            for(int i =0 ;i<num.size();i++)
+            {
+                if(visited[i]==1)
+                    continue;
+                visited[i]=1;
+                out.push_back(num[i]);
+
+                Helper(num,out,ret,index+1,visited);
+
+                out.pop_back();
+                visited[i]=0;
+            }
         }
-
-        for(int i = start ; i<num.size() ; i++)
-        {
-            swap(num[i],num[start]);//交换当前
-            Helper(num,ret,start+1);//进入下一层布局（后部分全排列）
-            swap(num[i],num[start]);//回到上一层布局
-        } 
-    } 
 };
