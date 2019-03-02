@@ -31,12 +31,17 @@
 class Solution {
 public:
     vector<vector<int>> combine(int n, int k) {
-        if (k > n || k < 0) return {};
-        if (k == 0) return {{}};
-        vector<vector<int>> res = combine(n - 1, k - 1);
-        for (auto &a : res) a.push_back(n);
-        for (auto &a : combine(n - 1, k)) res.push_back(a);
+        if(n<k||k<0) return {};
+        if(k==0) return {{}};
+
+        //保存从n-1里面选k-1个的结果res.再在res中每个数组末尾加最后一个数(n) 
+        vector<vector<int>> res=combine(n-1,k-1);
+        for(auto &a:res) a.push_back(n);
+
+        //保存从n-1里面选k个的结果。将结果中的每个数组都push进res结果集里。
+        for(auto a:combine(n-1,k)) res.push_back(a);
         return res;
     }
+
 };
   
