@@ -27,7 +27,7 @@
  * 
  * 
  */
-//法一。快排。找中位数。
+//法一。快排。找中位数。O(nlogn)
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
