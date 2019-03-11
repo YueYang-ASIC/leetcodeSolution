@@ -36,7 +36,7 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-//递归：左-右-根
+//递归：左-右-根 
 class Solution {
 public:
     vector<int> postorderTraversal(TreeNode* root) {
