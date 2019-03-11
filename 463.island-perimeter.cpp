@@ -36,6 +36,7 @@
  * 
  * 
  */
+//如果这个格子有岛屿，先假设算4个边，判断左边和上边是否有岛屿，如果左边有岛屿，res减去2，上边同理。
 class Solution {
 public:
     int islandPerimeter(vector<vector<int>>& grid) {
