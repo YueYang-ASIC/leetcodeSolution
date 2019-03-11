@@ -38,6 +38,7 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+//dfs.递归。E
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
