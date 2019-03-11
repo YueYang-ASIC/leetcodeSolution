@@ -29,10 +29,13 @@
  * 你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。
  * 
  */
+//sort(),reverse().O(nlogn)
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
-        
+        sort(nums.begin(),nums.end());
+        reverse(nums.begin(),nums.end());
+        return nums[k-1]; 
     }
 };
 
