@@ -24,6 +24,7 @@
  *     RandomListNode(int x) : label(x), next(NULL), random(NULL) {}
  * };
  */
+//链表/clone(copy,link,next)/copy random(copy,next)/departM
 class Solution {
 public:
     RandomListNode *copyRandomList(RandomListNode *head) 
