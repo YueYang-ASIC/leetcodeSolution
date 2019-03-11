@@ -27,7 +27,7 @@
  * 
  * 
  */
-//法二。不修改数组的方法
+//法二。不修改数组的方法On
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
