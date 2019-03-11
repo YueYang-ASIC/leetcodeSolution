@@ -37,6 +37,7 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+//递归
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
