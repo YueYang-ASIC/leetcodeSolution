@@ -29,12 +29,13 @@
  * 你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。
  * 
  */
-//法3. maxheap-priority_queue
+//法3. max-heap-priority_queue
+//所有元素放入优先队列（默认最大堆），弹出k-1次堆顶，返回堆顶。
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) 
     {
-         priority_queue<int> pq(nums.begin(), nums.end());
+        priority_queue<int> pq(nums.begin(), nums.end());
         for (int i = 0; i < k - 1; i++) {
             pq.pop();
         }
