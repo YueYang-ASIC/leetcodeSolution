@@ -42,11 +42,11 @@
  * 
  * 
  */
-//开两个stl的优先队列-maxheap和minheap，用来存前后一半的数
-//细节：
-//1.如果num小于maxheap.top(),说明在num小的那一半里，放入最大堆，如果不这样的话，可能会排序失败。
-//2.假定maxheap永远大于或者等于minheap的数量，这样如果两个堆相等就是平均值。不相等就是maxheap.top
-//3.利用AVL的思想，保证两个堆的深度之差不超过1，如果超过1,就把max堆顶放入min堆中
+// 开两个stl的优先队列-maxheap和minheap，用来存前后一半的数
+// 细节：
+// 1.如果num小于maxheap.top(),说明在num小的那一半里，放入最大堆，如果不这样的话，可能会排序失败。
+// 2.假定maxheap永远大于或者等于minheap的数量，这样如果两个堆相等就是平均值。不相等就是maxheap.top
+// 3.利用AVL的思想，保证两个堆的深度之差不超过1，如果超过1,就把max堆顶放入min堆中
 
 class MedianFinder {
 private:
