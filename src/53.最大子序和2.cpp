@@ -37,10 +37,9 @@ public:
         return 0;
 
         int cursum=nums[0];
-        int greatest=cursum;
-        auto it=nums.begin()+1;
+        int greatest=cursum; 
 
-        for(;it!=nums.end();it++)
+        for(auto it=nums.begin()+1;it!=nums.end();it++)
         {
             if(cursum<0)
                 cursum=*it;
