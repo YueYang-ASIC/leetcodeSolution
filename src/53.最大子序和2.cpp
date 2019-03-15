@@ -34,11 +34,9 @@ class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
         if(nums.empty())
-        return 0;
-
+        return 0; 
         int cursum=nums[0];
-        int greatest=cursum; 
-
+        int greatest=cursum;  
         for(auto it=nums.begin()+1;it!=nums.end();it++)
         {
             if(cursum<0)
