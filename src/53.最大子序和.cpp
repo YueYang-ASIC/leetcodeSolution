@@ -25,35 +25,19 @@
  * 如果你已经实现复杂度为 O(n) 的解法，尝试使用更为精妙的分治法求解。
  * 
  */
-//动态规划。用循环做。
-//F(i)=nums[i](F(i-1)<=0);
-//F(i)=nums[i]+F(i-1)(F(i-1)>0)
-//细节：nums只有{-1}时，所以开始sum=nums[0]，然后从第二个开始循环。
-
+//  
 class Solution {
 public:
-    int maxSubArray(vector<int>& nums) {
-        if(nums.empty())
-        return 0;
-
-        int cursum=nums[0];
-        int greatest=cursum;
-        auto it=nums.begin()+1;
-
-        for(;it!=nums.end();it++)
-        {
-            if(cursum<0)
-                cursum=*it;
-            else
-            {
-                 cursum+=*it;
-            }
-            if(cursum>greatest)
-            {
-                greatest=cursum;
-            } 
+  int maxSubArray(vector<int>& nums) {
+        int sum = nums[0] ;
+        int maxSum= sum;
+        
+        for(int num = 1; num < nums.size(); num++){
+            sum = max(nums[num], (sum + nums[num]));
+            maxSum = max(sum, maxSum);
         }
-        return greatest;
+        
+        return maxSum;
     }
 };
 

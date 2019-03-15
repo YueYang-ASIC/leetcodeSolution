@@ -35,22 +35,14 @@ public:
     int maxSubArray(vector<int>& nums) {
         if(nums.empty())
         return 0; 
-        int cursum=nums[0];
-        int greatest=cursum;  
+        int sum=nums[0];
+        int maxsum=sum;  
         for(auto it=nums.begin()+1;it!=nums.end();it++)
         {
-            if(cursum<0)
-                cursum=*it;
-            else
-            {
-                 cursum+=*it;
-            }
-            if(cursum>greatest)
-            {
-                greatest=cursum;
-            } 
+            sum = max(*it, (sum + *it));
+            maxsum = max(sum, maxsum);
         }
-        return greatest;
+        return maxsum;
     }
 };
 
