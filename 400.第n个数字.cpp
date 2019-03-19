@@ -42,8 +42,30 @@
  */
 class Solution {
 public:
-    int findNthDigit(int n) {
-        
-    }
+	int findNthDigit(int n) {
+        //1.计算位数
+        int digit=1;
+        long base=9;
+        while(n-base*digit>0)
+        {
+            n-=base*digit;
+            base*=10;
+            digit++;
+        }
+
+        //2.找到num
+        int nth=n/digit;
+        int index=n%digit;
+        int num=0;
+        num=pow(10,digit-1)+((index==0)?nth-1:nth);
+
+        //3.转换字符串
+        if(index==0)
+            index=digit;//很容易忘掉
+        string a=to_string(num);
+        a=a[index-1];
+        return stoi(a);
+
+	}
 };
 
