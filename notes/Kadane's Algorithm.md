@@ -1,5 +1,3 @@
-# Kadane's algorithm
-
 - Aka Maximum Sum of Subarray
 - Dynamic Programming
 
