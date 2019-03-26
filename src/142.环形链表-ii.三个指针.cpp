@@ -60,40 +60,31 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-//第一检测是否有环：快慢指针相遇，并且计数；第二找到入口：快指针先走size步，相遇就是入口节点。
+//三个指针！！环状检测算法！
+//1. 快慢指针第一次相遇时，头节点和入口节点的距离=(沿着指针移动的方向，)相遇节点和入口节点的距离.L1 = (n - 1) C + (C - L2) ,这一步很关键！！！if (slow == fast)
+//2. 同时 入口指针 也开始和 slow指针 一样走动了，一次走一步。
+//3. 当他们相遇时入口指针就指向入口节点。return entry;
 class Solution {
 public:
-	ListNode *detectCycle(ListNode *head) {
-		if (!hasCycle(head))
-			return nullptr;
-		
-		ListNode* fast, *slow;
-		fast = slow = head; 
-		while (count--)
-		{
-			fast = fast->next;
-		} 
-		while (slow!=fast)
-		{
-			fast = fast->next;
-			slow = slow->next;
-		}
-		return slow;
-	}
-	bool hasCycle(ListNode *head) {
-		ListNode* fast, *slow;//1.
-		fast = slow = head;
-		while (fast&&fast->next)//2.
-		{
-			fast = fast->next->next;
-			slow = slow->next;
-			count++;
-			if (fast == slow)//3.
-				return true;
-		}
-		return false;
-	}
-
-private:
-	int count = 0;
+ListNode *detectCycle(ListNode *head) {
+    if (head == NULL || head->next == NULL)
+        return NULL;
+    
+    ListNode *slow  = head;
+    ListNode *fast  = head;
+    ListNode *entry = head;
+    
+    while (fast->next && fast->next->next) {
+        slow = slow->next;
+        fast = fast->next->next;
+        if (slow == fast) {// 1. 
+            while(slow != entry) {// 2. 
+                slow  = slow->next;
+                entry = entry->next;
+            }
+            return entry;//3.
+        }
+    }
+    return NULL;
+}
 };
