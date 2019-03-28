@@ -24,7 +24,7 @@
  * ]
  * 
  */
-//
+//跟螺旋矩阵一样，只不过是逆向思维，套路还是上右下左遍历，更新行列号，判断越界break。
 class Solution {
 public:
 	vector<vector<int>> generateMatrix(int n) {
