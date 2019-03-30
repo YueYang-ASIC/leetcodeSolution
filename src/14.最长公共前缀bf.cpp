@@ -54,18 +54,18 @@ public:
 		}
 		 
 		
-		for (int i = 0,j= 0;i < _2DArray[0].size();  i++)//cols
+		for (int col = 0,row= 0;col< _2DArray[0].size();  col++)//cols
 		{
-			char cur = _2DArray[j][i];
-			for (; (j < _2DArray.size()); j++)//rows
+			char cur = _2DArray[row][col];
+			for (; (row < _2DArray.size()); row++)//rows
 			{
-				if (strs[j].length() <= i||_2DArray[j][i] != cur)//&&strs[j].length()>i vector越界
+				if (strs[row].length() <= col||_2DArray[row][col] != cur)//&&strs[row].length()>colvector越界
 					break; 
 			} 
-			if(j==_2DArray.size())
+			if(row==_2DArray.size())
 				ret.push_back(cur);
                 else break;
-			j = 0;// vector越界			
+			row = 0;// vector越界			
 		}
 
 		string res = "";
