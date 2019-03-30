@@ -36,40 +36,19 @@
 // 2Darray。纵向遍历。
 class Solution {
 public:
-	string longestCommonPrefix(vector<string>& strs) {
-		if (strs.empty())
-			return ""; 
-		vector<char> ret;
-
-		vector<vector<char>> _2DArray;
-		//string to vector<char>
-		for (auto const & string : strs)
-		{
-			vector<char> array;
-			for(auto const & c :string)
-			{
-				array.push_back(c);
-			}
-			_2DArray.push_back(array);
-		}
-		 
-		
-		for (int col = 0,row= 0;col< _2DArray[0].size();  col++)//cols
-		{
-			char cur = _2DArray[row][col];
-			for (; (row < _2DArray.size()); row++)//rows
-			{
-				if (strs[row].length() <= col||_2DArray[row][col] != cur)//&&strs[row].length()>colvector越界
-					break; 
-			} 
-			if(row==_2DArray.size())
-				ret.push_back(cur);
-                else break;
-			row = 0;// vector越界			
-		}
-
-		string res = "";
-		for (auto const & c : ret)
-			res += c;
-		return res;
-	}};
+    string longestCommonPrefix(vector<string>& strs) {
+        if (strs.empty()) return "";
+        string res = "";
+        for (int j = 0; j < strs[0].size(); ++j) {
+            char c = strs[0][j];
+            for (int i = 1; i < strs.size(); ++i) {
+                if (j >= strs[i].size() || strs[i][j] != c) {
+                    return res;
+                }
+            }
+            res.push_back(c);
+        }
+        return res;
+    }
+};
+ 
