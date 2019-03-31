@@ -37,14 +37,15 @@
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
-        if (strs.empty()) return "";
-        for (int j = 0; j < strs[0].size(); ++j) {
-            for (int i = 0; i < strs.size(); ++i) {
-                if (j >= strs[i].size() || strs[i][j] != strs[0][j]) {
-                    return strs[i].substr(0, j);
-                }
+        if(strs.empty()) return "";
+        for(int col=0;col<strs[0].size();col++)
+        {
+            for(int row=0;row<strs.size();row++)
+            {
+                if(strs[row].size()<=col||strs[row][col]!=strs[0][col])
+                    return strs[0].substr(0,col);
             }
-        }
+        }    
         return strs[0];
     }
 };
